@@ -46,3 +46,23 @@ def visualizarExperimento(listaExperimentos):
         print(f"Fecha de realizacion: {experimento.fechaRealización.strftime('%d/%m/%Y')}")
         print(f"Tipo de experimento: {experimento.tipoExperimento}")
         print(f"resultado: {experimento.resultado}")
+
+#Analisis de resultados
+def AnalisisResultado(listaExperimento):
+    if not listaExperimento:
+        print("No hay experimentos registardos")
+        return
+    
+    for experimento in listaExperimento:
+        promedio = statistics.mean(experimento.resultado)
+        maximo = max(experimento.resultado)
+        minimo = min(experimento.resultado)
+        print(f"\nanalisis de experimento{experimento.nombreExperimento}")
+        print(f"promedio de horas:{promedio}")
+        print (f"resultado maximo:{maximo}")
+        print(f"resultado minimo:{minimo}")
+        
+        
+        
+    
+ 
