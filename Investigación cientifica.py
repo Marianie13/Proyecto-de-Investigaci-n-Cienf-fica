@@ -52,7 +52,7 @@ def AnalisisResultado(listaExperimento):
     if not listaExperimento:
         print("No hay experimentos registardos")
         return
-    
+
     for experimento in listaExperimento:
         promedio = statistics.mean(experimento.resultado)
         maximo = max(experimento.resultado)
@@ -61,8 +61,18 @@ def AnalisisResultado(listaExperimento):
         print(f"promedio de horas:{promedio}")
         print (f"resultado maximo:{maximo}")
         print(f"resultado minimo:{minimo}")
-        
-        
-        
-    
- 
+
+#Metodo que genere informe en formato txt
+def InformeFinal(listaExperimento):
+    if not listaExperimento:
+        print("No hay experimentos registrados")
+        return
+
+    with open("informe_tareas.txt", "w") as archivo:
+        for tarea in listaExperimento:
+            archivo.write(f"Nombre: {experimento.nombreExperimento}\n")
+            archivo.write(f"Fecha de realizacion: {experimento.fechaRealización.strftime('%d/%m/%Y')}\n")
+            archivo.write(f"Tipo de experimento: {experimento.tipoExperimento}\n")
+            archivo.write(f"Resultado: {experimento.resultado}\n")
+            archivo.write("\n")
+    print("Informe generado como 'informe_tareas.txt' ")
