@@ -42,7 +42,7 @@ def visualizarExperimento(listaExperimentos):
 
     for i, experimento in enumerate(listaExperimentos, start=1):
         print(f"\nTa {i}")
-        print(f"Nombre: {tarea.nombre}")
-        print(f"Fecha limite: {tarea.fechaLimite.strftime('%d/%m/%Y')}")
-        print(f"Categoria: {tarea.categoria}")
-        print(f"Horas dedicadas: {tarea.horasDedicadas}")
+        print(f"Nombre: {experimento.nombreExperimento}")
+        print(f"Fecha de realizacion: {experimento.fechaRealización.strftime('%d/%m/%Y')}")
+        print(f"Tipo de experimento: {experimento.tipoExperimento}")
+        print(f"resultado: {experimento.resultado}")
