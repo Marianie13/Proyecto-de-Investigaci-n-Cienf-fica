@@ -1,21 +1,21 @@
-import datetime import datetime
-import statistics import statistics
+from datetime import datetime
+import statistics
 
-class experimento: 
+class Experimento:
     #Se establece metodo constructor
     def __init__(self, nombreExperimento, fechaRealización, tipoExperimento, resultado):
         self.nombreExperimento = nombreExperimento
         self.fechaRealización = fechaRealización
         self.tipoExperimento = tipoExperimento
         self.resultado = resultado
-        
+
 #Metodo para agregar expermento
 def agregarExperimento(listaExperimentos):
     print("\n--- Agregar nuevo experimento ---")
     nombreExperimento = input("Nombre del experimento: ").strip()
     fechaRealizaciónstr = input("Fecha de realización (DD/MM/AAAA): ").strip()
-    try: 
-       fechaRealización = datetime.strptime (fechaRealizaciónstr, "%d/%m/%Y")
+    try:
+        fechaRealización = datetime.strptime (fechaRealizaciónstr, "%d/%m/%Y")
     except ValueError:
         print("Fecha no valida")
         return
@@ -29,12 +29,20 @@ def agregarExperimento(listaExperimentos):
     except ValueError:
         print("Error: Los resultados deben ser números separados por comas.")
         return
-    listaExperimentos.append({
-        "nombreExperimento": nombreExperimento,
-        "fechaRealización": fechaRealización,
-        "tipoExperimentotipo": tipoExperimento,
-        "resultado": resultado
-    })
-    print(f"¡Experimento '{nombreExperimento}' agregado con éxito!")
-    
 
+    experimento = Experimento(nombreExperimento, fechaRealización,  tipoExperimento, resultado)
+    listaExperimentos.append(experimento)
+    print(f"¡Experimento '{nombreExperimento}' agregado con éxito!")
+
+#Metodo que nos permite visualizar los experimentos registrados
+def visualizarExperimento(listaExperimentos):
+    if not listaExperimentos:
+        print("No hay experimentos registrados")
+        return
+
+    for i, experimento in enumerate(listaExperimentos, start=1):
+        print(f"\nTa {i}")
+        print(f"Nombre: {tarea.nombre}")
+        print(f"Fecha limite: {tarea.fechaLimite.strftime('%d/%m/%Y')}")
+        print(f"Categoria: {tarea.categoria}")
+        print(f"Horas dedicadas: {tarea.horasDedicadas}")
