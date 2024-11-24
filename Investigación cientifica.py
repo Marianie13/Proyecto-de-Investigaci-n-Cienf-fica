@@ -77,6 +77,46 @@ def InformeFinal(listaExperimento):
             archivo.write("\n")
     print("Informe generado como 'informe_tareas.txt' ")
 
+def CompararExperimentos(listaExperimento):
+    if not listaExperimento or len(listaExperimento) < 2:
+        print("Se necesitan al menos dos experimentos para hacer una comparación.")
+        return
+
+    # Crear una lista de tuplas con (nombre_experimento, promedio_resultados)
+    resultados_promedio = []
+    for experimento in listaExperimento:
+        promedio = statistics.mean(experimento.resultado)
+        resultados_promedio.append({
+            'nombre': experimento.nombreExperimento,
+            'tipo': experimento.tipoExperimento,
+            'promedio': promedio,
+            'fecha': experimento.fechaRealización.strftime('%d/%m/%Y')
+        })
+
+    # Ordenar por promedio (de mayor a menor)
+    resultados_ordenados = sorted(resultados_promedio, key=lambda x: x['promedio'], reverse=True)
+
+    # Mostrar resultados
+    print("\n=== Comparación de Experimentos ===")
+    print("\nRanking de experimentos por promedio de resultados:")
+    for i, resultado in enumerate(resultados_ordenados, 1):
+        print(f"\n{i}. Experimento: {resultado['nombre']}")
+        print(f"   Tipo: {resultado['tipo']}")
+        print(f"   Fecha: {resultado['fecha']}")
+        print(f"   Promedio: {resultado['promedio']:.2f}")
+
+    # Identificar mejor y peor experimento
+    mejor = resultados_ordenados[0]
+    peor = resultados_ordenados[-1]
+
+    print("\n=== Resumen ===")
+    print(f"\nMejor experimento:")
+    print(f"- {mejor['nombre']} (Tipo: {mejor['tipo']}) con promedio de {mejor['promedio']:.2f}")
+
+    print(f"\nExperimento con menor rendimiento:")
+    print(f"- {peor['nombre']} (Tipo: {peor['tipo']}) con promedio de {peor['promedio']:.2f}")
+
+
 def menu():
 
     listaExperimento = []
@@ -86,7 +126,8 @@ def menu():
         print("2. Visualizar experimentos registrados")
         print("3. Analizar datos")
         print("4. Generar informe")
-        print("5. Salir")
+        print("5. Comparar resultados")
+        print("6. Salir")
 
         opcion = input("Elige una opción: ")
 
@@ -99,6 +140,8 @@ def menu():
         elif opcion == "4":
             InformeFinal(listaExperimento)
         elif opcion == "5":
+            CompararExperimentos(listaExperimento)
+        elif opcion == "6":
             print("saliendo del programa....")
             break
         else:
