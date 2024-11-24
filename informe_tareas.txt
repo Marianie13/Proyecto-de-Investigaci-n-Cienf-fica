@@ -1,10 +1,10 @@
 Nombre: experimento 1
-Fecha de realizacion: 20/11/2024
-Tipo de experimento: QUIMICA
-Resultado: [2.0, 5.0, 4.0, 3.0, 3.0]
+Fecha de realizacion: 11/11/2024
+Tipo de experimento: FISICA
+Resultado: [4.3]
 
 Nombre: experimento 2
-Fecha de realizacion: 10/11/2024
-Tipo de experimento: FISICA
-Resultado: [2.0, 5.0, 3.0, 4.0, 3.0, 4.0, 5.0]
+Fecha de realizacion: 20/11/2024
+Tipo de experimento: BIOLOGIA
+Resultado: [5.6]
 
