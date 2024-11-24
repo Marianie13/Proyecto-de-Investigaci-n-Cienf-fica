@@ -68,7 +68,7 @@ def InformeFinal(listaExperimento):
         print("No hay experimentos registrados")
         return
 
-    with open("informe_tareas.txt", "w") as archivo:
+    with open("informe_experimentos.txt", "w") as archivo:
         for experimento in listaExperimento:
             archivo.write(f"Nombre: {experimento.nombreExperimento}\n")
             archivo.write(f"Fecha de realizacion: {experimento.fechaRealización.strftime('%d/%m/%Y')}\n")
